@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BackendService } from "@genezio-sdk/auth-project_us-east-1"
+import { BackendService } from "@genezio-sdk/genezio-auth-tutorial_us-east-1"
 import { useNavigate } from 'react-router-dom';
 
 const SecretView: React.FC = () => {
