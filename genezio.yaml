@@ -1,0 +1,14 @@
+name: auth-project
+region: us-east-1
+language: ts
+cloudProvider: genezio
+scripts:
+  preBackendDeploy: npm install
+  preFrontendDeploy: npm install && npm run build
+frontend:
+  path: client/dist
+  subdomain: blush-sad-gerbil
+packageManager: npm
+workspace:
+  backend: server
+  frontend: client
