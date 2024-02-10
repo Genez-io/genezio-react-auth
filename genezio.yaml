@@ -1,4 +1,4 @@
-name: auth-project
+name: genezio-auth-tutorial
 region: us-east-1
 language: ts
 cloudProvider: genezio
