@@ -8,7 +8,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@genezio/types": "^1.0.2",
+        "@genezio/types": "^1.0.12",
         "node-fetch": "^3.3.2"
     },
     "prettier": {

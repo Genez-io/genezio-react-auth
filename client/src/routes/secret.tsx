@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { BackendService } from "@genezio-sdk/auth-project_us-east-1"
+import { useNavigate } from 'react-router-dom';
 
 const SecretView: React.FC = () => {
-  const [secret] = useState('');
-  const [name] = useState('');
-  const [email] = useState('');
+  // @ts-ignore
+  const navigate = useNavigate();
+  const [secret, setSecret] = useState('');
+  // @ts-ignore
+  const [name, setName] = useState('');
+  // @ts-ignore
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
       if (name && email) {
@@ -17,6 +23,8 @@ const SecretView: React.FC = () => {
 
   // Function to fetch the secret
   const fetchSecret = async () => {
+    const secret = await BackendService.getSecret();
+    setSecret(secret);
   };
 
   return (
