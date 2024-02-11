@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "./styles.css";
 import { useNavigate } from 'react-router-dom';
+import { AuthService } from '@genezio/auth';
 
 const Signup: React.FC = () => {
   const navigate = useNavigate();
@@ -10,9 +11,18 @@ const Signup: React.FC = () => {
   const [name, setName] = useState('');
 
   const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    setLoading(true);
-    setLoading(false);
+      event.preventDefault();
+      setLoading(true);
+      try {
+          const response = await AuthService.getInstance().register(email, password, name);
+          console.log('Register Success', response);
+
+          navigate('/login');
+      } catch (error: any) {
+          console.log(error);
+          alert("An error has occured")
+      }
+      setLoading(false);
   };
 
   return (

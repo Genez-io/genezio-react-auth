@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@genezio-sdk/genezio-auth-tutorial_us-east-1": "^1.0.0-prod",
+    "@genezio/auth": "^2.0.4",
     "@genezio/vite-plugin-genezio": "^1.0.4",
     "@react-oauth/google": "^0.12.1",
     "react": "^18.2.0",
