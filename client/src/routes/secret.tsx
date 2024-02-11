@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { BackendService } from "@genezio-sdk/genezio-auth-tutorial_us-east-1"
+import { useNavigate } from 'react-router-dom';
 
 const SecretView: React.FC = () => {
   const [loading, setLoading] = useState(false);
+  // @ts-ignore
+  const navigate = useNavigate();
   // @ts-ignore
   const [secret, setSecret] = useState('');
   // @ts-ignore
@@ -22,6 +26,8 @@ const SecretView: React.FC = () => {
   // Function to fetch the secret
   const fetchSecret = async () => {
       setLoading(true);
+      const secret = await BackendService.getSecret();
+      setSecret(secret);
       setLoading(false);
   };
 

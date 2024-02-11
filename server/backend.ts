@@ -6,7 +6,7 @@ export class BackendService {
   readonly secret = "Capybaras are AWESOME! Shhh... don't tell the cats!";
 
   @GenezioMethod()
-  async getSecret() {
+  getSecret(): string {
     return this.secret;
   }
 }
