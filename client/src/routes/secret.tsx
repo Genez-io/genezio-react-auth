@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 const SecretView: React.FC = () => {
-  const [secret] = useState('');
-  const [name] = useState('');
-  const [email] = useState('');
+  const [loading, setLoading] = useState(false);
+  // @ts-ignore
+  const [secret, setSecret] = useState('');
+  // @ts-ignore
+  const [name, setName] = useState('');
+  // @ts-ignore
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
       if (name && email) {
@@ -17,6 +21,8 @@ const SecretView: React.FC = () => {
 
   // Function to fetch the secret
   const fetchSecret = async () => {
+      setLoading(true);
+      setLoading(false);
   };
 
   return (
@@ -24,7 +30,7 @@ const SecretView: React.FC = () => {
       <h2>Your details</h2>
       <p>Name: {name}</p>
       <p>Email: {email}</p>
-      <button onClick={fetchSecret}>Reveal Secret</button>
+      <button onClick={fetchSecret}>{ loading ? "Loading..." : "Reveal Secret" }</button>
       <button onClick={logout}>Logout</button>
       {secret && <p>{secret}</p>}
     </div>

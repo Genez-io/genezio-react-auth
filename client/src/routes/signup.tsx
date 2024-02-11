@@ -4,12 +4,15 @@ import { useNavigate } from 'react-router-dom';
 
 const Signup: React.FC = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setLoading(true);
+    setLoading(false);
   };
 
   return (
@@ -41,7 +44,7 @@ const Signup: React.FC = () => {
           onChange={e => setPassword(e.target.value)}
         />
       </div>
-      <button type="submit">Sign Up</button>
+      <button type="submit">{ loading ? "Loading..." : "Sign Up" }</button>
       <button onClick={() => navigate('/login')}>Go to login</button>
     </form>
   );
