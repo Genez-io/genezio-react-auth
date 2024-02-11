@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./styles.css";
 import { useNavigate } from 'react-router-dom';
-import { AuthService } from '@genezio/auth';
+import { AuthService, ErrorCode } from '@genezio/auth';
 
 const Signup: React.FC = () => {
   const navigate = useNavigate();
@@ -20,7 +20,11 @@ const Signup: React.FC = () => {
           navigate('/login');
       } catch (error: any) {
           console.log(error);
-          alert("An error has occured")
+          if (error.code === ErrorCode.EMAIL_ALREADY_EXISTS) {
+              alert("Email already exists")
+          } else { 
+              alert("An error has occured")
+          }
       }
       setLoading(false);
   };
