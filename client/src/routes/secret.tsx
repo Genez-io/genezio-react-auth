@@ -26,8 +26,13 @@ const SecretView: React.FC = () => {
   // Function to fetch the secret
   const fetchSecret = async () => {
       setLoading(true);
-      const secret = await BackendService.getSecret();
-      setSecret(secret);
+      try {
+        const secret = await BackendService.getSecret();
+        setSecret(secret);
+      } catch (error) {
+        console.error(error);
+        navigate('/login');
+      }
       setLoading(false);
   };
 
