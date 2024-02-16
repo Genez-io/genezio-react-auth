@@ -22,11 +22,19 @@ const Signup: React.FC = () => {
           console.log(error);
           if (error.code === ErrorCode.EMAIL_ALREADY_EXISTS) {
               alert("Email already exists")
+          } else if (error.code === ErrorCode.PASSWORD_CONTAINS_ONLY_NUMBER) {
+              alert('Password contains only numbers');
+          } else if (error.code === ErrorCode.PASSWORD_MUST_HAVE_AT_LEAST_ONE_SPECIAL_CHARACTER) {
+              alert('Password must have at least one special character');
+          } else if (error.code === ErrorCode.PASSWORD_MUST_HAVE_AT_LEAST_ONE_UPPERCASE_LETTER) {
+              alert('Password must have at least one uppercase letter');
+          } else if (error.code === ErrorCode.PASSWORD_TOO_SHORT) {
+              alert('Password too short');
           } else { 
               alert("An error has occured")
           }
-      }
-      setLoading(false);
+       }
+       setLoading(false);
   };
 
   return (
