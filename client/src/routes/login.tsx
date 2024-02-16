@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-// TODO: Uncomment the following line to use Google Login
-// import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
 import "./styles.css";
 import { useNavigate } from 'react-router-dom';
 
@@ -12,21 +10,14 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = async (event: React.FormEvent) => {
+  const handleLoginSubmit = async (event: React.FormEvent) => {
       setLoginLoading(true);
       event.preventDefault();
       setLoginLoading(false);
   };
 
-  // TODO Uncomment the following function to use Google Login
-  // const handleGoogleLogin = async (credentialResponse: CredentialResponse) => {
-  //     setGoogleLoginLoading(true);
-  //     console.log(credentialResponse);
-  //     setGoogleLoginLoading(false);
-  // };
-
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleLoginSubmit}>
       <div>
         <label htmlFor="email">Email:</label>
         <input
@@ -46,15 +37,6 @@ const Login: React.FC = () => {
         />
       </div>
       <button type="submit">{ loginLoading ? "Loading..." : "Login" } </button>
-      {/* TODO: Uncomment the following line to use Google Login */}
-      {/* { googleLoginLoading ? <>Loading...</> :  <GoogleLogin
-        onSuccess={credentialResponse => {
-          handleGoogleLogin(credentialResponse);
-        }}
-        onError={() => {
-          console.log('Login Failed');
-        }}
-      />} */}
       <button onClick={() => navigate('/signup')}>Create an account</button>
       </form>
   );
