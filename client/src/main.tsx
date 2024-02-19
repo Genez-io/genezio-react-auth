@@ -10,7 +10,8 @@ import Login from './routes/login';
 import Signup from './routes/signup';
 import { AuthService } from "@genezio/auth";
 
-AuthService.getInstance().setTokenAndRegion("<your-genezio-auth-token>", "<your-project-region>");
+// TODO Replace this with your own Genezio Token and Project Region
+AuthService.getInstance().setTokenAndRegion("<YOUR_GENEZIO_TOKEN>", "<YOUR_PROJECT_REGION>");
 
 const router = createBrowserRouter([
   {
