@@ -12,6 +12,8 @@ backend:
 frontend:
   path: client
   publish: dist
+  sdk:
+    language: ts
   scripts:
     deploy:
       - npm run install-prod-sdk
