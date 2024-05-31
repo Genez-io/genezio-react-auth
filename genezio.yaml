@@ -8,14 +8,11 @@ backend:
     packageManager: npm
   scripts:
     deploy: npm install
-  cloudProvider: genezio
 frontend:
   path: client
   sdk:
     language: ts
   publish: dist
-  sdk:
-    language: ts
   scripts:
     deploy:
       - npm run install-prod-sdk
